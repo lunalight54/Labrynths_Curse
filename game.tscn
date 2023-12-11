@@ -1376,7 +1376,7 @@ sprite_frames = SubResource("SpriteFrames_5q74m")
 animation = &"warrior_idle_-22.5"
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 script = ExtResource("276_h6pm8")
 
 [node name="HitScan" type="ShapeCast2D" parent="Character"]

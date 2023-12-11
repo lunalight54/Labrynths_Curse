@@ -1,4 +1,5 @@
 extends RigidBody2D
+@onready var anim = $Skele
 var vision_range
 var out_of_vision
 var action
@@ -33,13 +34,26 @@ func _physics_process(delta):
 		if (distance.length() >= out_of_vision):
 			active = false
 			movespeed = 0.8
+		
+		if (active == true):
+			if (angle == -180):
+				angle = 180
+			var current_frame = anim.get_frame()
+			var current_progress = anim.get_frame_progress()
+			anim.play("skeleton_walk_"+str(angle))
+			anim.set_frame_and_progress(current_frame,current_progress);
+		else:
+			anim.pause()
 	
 func die():
 	dead = true
-	#play death anim
+	if (angle == -180):
+		angle = 180
+	anim.play("skeleton_death_"+str(angle))
+	self.add_collision_exception_with(Utils.game.player)
 
 func attack():
-	pass
+	pass #make an attack upon contact, no animation :(
 
 func hit(hit_pos, dmg):# przekazać do hita rotacja miecza na knockback
 	if (dead == false):
