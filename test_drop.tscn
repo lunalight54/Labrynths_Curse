@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5ctfcdndt7dn"]
 
-[ext_resource type="Texture2D" uid="uid://dnep7hoa0nr0b" path="res://icon.svg" id="1_gfksx"]
+[ext_resource type="Texture2D" uid="uid://dnep7hoa0nr0b" path="res://assets/icon.svg" id="1_gfksx"]
 
 [node name="Icon" type="Sprite2D"]
 scale = Vector2(0.129997, 0.127726)

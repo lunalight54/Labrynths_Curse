@@ -15,7 +15,6 @@ func _ready():
 	generate_room(null, "south")
 	spawn_character()
 	
-	
 func spawn_character(): 
 	player.global_position = spawnPosition
 	

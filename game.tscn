@@ -1,16 +1,16 @@
 [gd_scene load_steps=283 format=3 uid="uid://b8hylqxa7fg5f"]
 
 [ext_resource type="Texture2D" uid="uid://dtuvp2exjks72" path="res://assets/playable character/warrior/warrior_armed_attack/E/warrior_armed_attack_E_0.0_0.png" id="1_an0pg"]
-[ext_resource type="Script" path="res://game.gd" id="1_dfl83"]
-[ext_resource type="Texture2D" uid="uid://dnep7hoa0nr0b" path="res://icon.svg" id="1_so0vm"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_md3ub"]
 [ext_resource type="Texture2D" uid="uid://bg47rvqo5rmwy" path="res://assets/playable character/warrior/warrior_armed_idle/E/warrior_armed_idle_E_0.0_0.png" id="1_sshii"]
 [ext_resource type="Texture2D" uid="uid://cddo6sw33udpi" path="res://assets/playable character/warrior/warrior_armed_attack/E/warrior_armed_attack_E_0.0_1.png" id="2_77wkp"]
+[ext_resource type="Texture2D" uid="uid://dnep7hoa0nr0b" path="res://assets/icon.svg" id="2_j8a3h"]
 [ext_resource type="Texture2D" uid="uid://cvcjibikhwveq" path="res://assets/playable character/warrior/warrior_armed_idle/N/warrior_armed_idle_N_90.0_0.png" id="2_unq5o"]
-[ext_resource type="Script" path="res://Player.gd" id="2_wr3yb"]
 [ext_resource type="Texture2D" uid="uid://bl0yrf30q5o0v" path="res://assets/playable character/warrior/warrior_armed_attack/NNW/warrior_armed_attack_NNW_112.5_0.png" id="3_3ecfk"]
 [ext_resource type="Texture2D" uid="uid://b3jri64ydjds7" path="res://assets/playable character/warrior/warrior_armed_idle/NE/warrior_armed_idle_NE_45.0_0.png" id="3_4t88x"]
 [ext_resource type="Texture2D" uid="uid://0iwyq502tbft" path="res://assets/playable character/warrior/warrior_armed_attack/E/warrior_armed_attack_E_0.0_2.png" id="3_gpkdw"]
 [ext_resource type="Texture2D" uid="uid://dbfvv0l7nwan" path="res://assets/playable character/warrior/warrior_armed_attack/SWW/warrior_armed_attack_SWW_202.5_0.png" id="3_tdecr"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="3_xekl0"]
 [ext_resource type="Texture2D" uid="uid://covpotyeu8ccd" path="res://assets/playable character/warrior/warrior_armed_attack/SWW/warrior_armed_attack_SWW_202.5_1.png" id="4_16wfe"]
 [ext_resource type="Texture2D" uid="uid://cktibgqfnvrb4" path="res://assets/playable character/warrior/warrior_armed_idle/NEE/warrior_armed_idle_NEE_22.5_0.png" id="4_88dhe"]
 [ext_resource type="Texture2D" uid="uid://ds5frd5ewts6i" path="res://assets/playable character/warrior/warrior_armed_attack/NNW/warrior_armed_attack_NNW_112.5_1.png" id="4_guxxc"]
@@ -62,7 +62,6 @@
 [ext_resource type="Texture2D" uid="uid://xtl15xfxxl1c" path="res://assets/playable character/warrior/warrior_armed_attack/SSW/warrior_armed_attack_SSW_247.5_0.png" id="19_3o07t"]
 [ext_resource type="Texture2D" uid="uid://b67dtcepaxb5j" path="res://assets/playable character/warrior/warrior_armed_attack/NWW/warrior_armed_attack_NWW_157.5_0.png" id="19_g6rfw"]
 [ext_resource type="Texture2D" uid="uid://dxe23qosm5irn" path="res://assets/user interface/cursor/cursor_gauntlet_yellow.png" id="19_r0kn0"]
-[ext_resource type="Script" path="res://Cursor.gd" id="20_6y5ls"]
 [ext_resource type="Texture2D" uid="uid://b2njlim847gtf" path="res://assets/playable character/warrior/warrior_armed_attack/SSW/warrior_armed_attack_SSW_247.5_1.png" id="20_aqyrs"]
 [ext_resource type="Texture2D" uid="uid://d0umjnvltnuem" path="res://assets/playable character/warrior/warrior_armed_attack/NWW/warrior_armed_attack_NWW_157.5_1.png" id="20_rljlu"]
 [ext_resource type="Texture2D" uid="uid://c0mv5jgop0qrm" path="res://assets/playable character/warrior/warrior_armed_attack/SSW/warrior_armed_attack_SSW_247.5_2.png" id="21_amke7"]
@@ -277,7 +276,8 @@
 [ext_resource type="Texture2D" uid="uid://btmkdmicgk5x8" path="res://assets/playable character/warrior/warrior_armed_walk/E/warrior_armed_walk_E_0.0_5.png" id="142_l1xth"]
 [ext_resource type="Texture2D" uid="uid://bvsy4wkgin20s" path="res://assets/playable character/warrior/warrior_armed_walk/E/warrior_armed_walk_E_0.0_6.png" id="143_ro22j"]
 [ext_resource type="Texture2D" uid="uid://fnq2to2joe3p" path="res://assets/playable character/warrior/warrior_armed_walk/E/warrior_armed_walk_E_0.0_7.png" id="144_pabe7"]
-[ext_resource type="Script" path="res://Camera2D.gd" id="276_cnhq0"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="276_h6pm8"]
+[ext_resource type="Script" path="res://scripts/Cursor.gd" id="278_lod46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ls14"]
 size = Vector2(125.5, 128)
@@ -1346,9 +1346,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5panp"]
+radius = 8.0
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_dfl83")
+script = ExtResource("1_md3ub")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 top_level = true
@@ -1359,15 +1360,15 @@ shape = SubResource("RectangleShape2D_7ls14")
 
 [node name="Icon" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(1338, 217)
-texture = ExtResource("1_so0vm")
+texture = ExtResource("2_j8a3h")
 
 [node name="Character" type="RigidBody2D" parent="."]
 top_level = true
 lock_rotation = true
-script = ExtResource("2_wr3yb")
+script = ExtResource("3_xekl0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
-position = Vector2(-1, -16)
+position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_j16rv")
 
 [node name="Player" type="AnimatedSprite2D" parent="Character"]
@@ -1376,7 +1377,7 @@ animation = &"warrior_idle_-22.5"
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 zoom = Vector2(2, 2)
-script = ExtResource("276_cnhq0")
+script = ExtResource("276_h6pm8")
 
 [node name="HitScan" type="ShapeCast2D" parent="Character"]
 position = Vector2(0, -20)
@@ -1388,8 +1389,9 @@ z_index = 2
 position = Vector2(608, 73)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_r0kn0")
-script = ExtResource("20_6y5ls")
+script = ExtResource("278_lod46")
 
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Character/Camera2D" method="_on_timer_timeout"]

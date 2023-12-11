@@ -3,14 +3,20 @@ extends RigidBody2D
 @onready var hit_cone=$HitScan
 var action
 var first_hit
+var damage
+var anim_speed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	action = "idle";
 	player.play("warrior_walk_0")
 	first_hit = true
+	damage = 30
+	anim_speed = player.get_playing_speed()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	hit_cone.look_at(get_global_mouse_position())
+	hit_cone.rotation += PI/2
 	_change_direction();
 	if (action == "attack"):
 		await(player.animation_finished)
@@ -45,21 +51,20 @@ func _physics_process(delta):
 
 		
 func _change_direction():
-	var play_backwards = false
 	var direction = snappedf(-rad_to_deg((get_global_mouse_position()-global_position).angle_to(Vector2.UP)),22.5)
 	if (direction == -180):
 		direction = 180
 	var current_frame = player.get_frame()
 	var current_progress = player.get_frame_progress()
 	player.play("warrior_"+action+"_"+str(direction))
+	if (action == "attack"):
+		player.speed_scale = anim_speed * 2
 	player.set_frame_and_progress(current_frame,current_progress); #this can cause attack anim to be shorter
 	
 	if (action == "attack" && first_hit == true):
-		hit_cone.look_at(get_global_mouse_position())
-		hit_cone.rotation += PI/2
 		var collisions = hit_cone.get_collision_count()
 		for i in collisions:
 			var obj = hit_cone.get_collider(i)
 			if(obj.has_method("hit")):
-				obj.hit()
+				obj.hit(hit_cone.global_position, damage)
 		first_hit = false

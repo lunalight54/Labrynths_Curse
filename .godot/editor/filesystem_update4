@@ -1,6 +1,7 @@
 res://game.tscn
 res://assets/tilestes/room_1.tres
-res://Skeleton.gd
+res://scripts/Skeleton.gd
+res://scripts/Player.gd
 res://room_0.tscn
 res://room_1.tscn
 res://room_2.tscn
@@ -9,5 +10,4 @@ res://room_4.tscn
 res://room_5.tscn
 res://door.tscn
 res://skeleton.tscn
-res://Player.gd
-res://game.gd
+res://scripts/Camera2D.gd

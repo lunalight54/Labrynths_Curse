@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dcxh5m11y8wye"]
 
 [ext_resource type="Texture2D" uid="uid://c57jtcpret4hg" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_0.png" id="1_3hfm3"]
-[ext_resource type="Script" path="res://Skeleton.gd" id="1_q82cy"]
+[ext_resource type="Script" path="res://scripts/Skeleton.gd" id="1_0776o"]
 [ext_resource type="Texture2D" uid="uid://4r5qqsg56ble" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_1.png" id="2_iumrt"]
 [ext_resource type="Texture2D" uid="uid://bn0hdy2vsp4gq" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_2.png" id="3_pd1js"]
 [ext_resource type="Texture2D" uid="uid://triaob2a0nkv" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_3.png" id="4_riy6g"]
@@ -47,7 +47,7 @@ animations = [{
 
 [node name="Skeleton" type="RigidBody2D"]
 lock_rotation = true
-script = ExtResource("1_q82cy")
+script = ExtResource("1_0776o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -14)
