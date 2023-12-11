@@ -1,0 +1,16 @@
+ShapeCast2D
+CollisionShape2D
+Area2D
+RigidBody2D
+AnimatedSprite2D
+Container
+Timer
+Node2D
+TileMap
+NavigationObstacle2D
+NavigationAgent2D
+NavigationLink2D
+Node
+Camera2D
+StaticBody2D
+AnimatableBody2D

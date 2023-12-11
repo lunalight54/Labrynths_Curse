@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcxh5m11y8wye"]
+
+[ext_resource type="Texture2D" uid="uid://c57jtcpret4hg" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_0.png" id="1_3hfm3"]
+[ext_resource type="Script" path="res://Skeleton.gd" id="1_q82cy"]
+[ext_resource type="Texture2D" uid="uid://4r5qqsg56ble" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_1.png" id="2_iumrt"]
+[ext_resource type="Texture2D" uid="uid://bn0hdy2vsp4gq" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_2.png" id="3_pd1js"]
+[ext_resource type="Texture2D" uid="uid://triaob2a0nkv" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_3.png" id="4_riy6g"]
+[ext_resource type="Texture2D" uid="uid://cetosud5nkmn6" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_4.png" id="5_u84dx"]
+[ext_resource type="Texture2D" uid="uid://bb56lnwxs2oil" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_5.png" id="6_hp5x3"]
+[ext_resource type="Texture2D" uid="uid://bfrv0mr1u8jw8" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_6.png" id="7_x2p40"]
+[ext_resource type="Texture2D" uid="uid://dpyrmhnj0ihp3" path="res://assets/enemy/skeleton/skeleton_default_walk/S/skeleton_default_walk_S_270.0_7.png" id="8_nst8h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8ny1"]
+radius = 6.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m86tx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3hfm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iumrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pd1js")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_riy6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u84dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hp5x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x2p40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nst8h")
+}],
+"loop": true,
+"name": &"skeleton_walk_180",
+"speed": 5.0
+}]
+
+[node name="Skeleton" type="RigidBody2D"]
+lock_rotation = true
+script = ExtResource("1_q82cy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -14)
+shape = SubResource("CapsuleShape2D_b8ny1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m86tx")
+animation = &"skeleton_walk_180"
+frame = 2
+frame_progress = 0.339932
